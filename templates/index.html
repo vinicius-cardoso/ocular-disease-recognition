@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reconhecimento de doenças oculares</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Carregar</button>
+    </form>
+
+    {% if uploaded_image %}
+        <h2>Dimensões da imagem: {{ width }} x {{ height }}</h2>
+        <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Carregar">
+    {% endif %}
+</body>
+</html>
