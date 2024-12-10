@@ -1,0 +1,29 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Flask Image Uploader",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "context": "."
+	},
+	"settings": {
+	  "python.pythonPath": "/usr/bin/python3",
+	  "python.defaultInterpreterPath": "/usr/bin/python3",
+	  "editor.formatOnSave": true
+	},
+	"extensions": [
+	  "ms-python.python",
+	  "ms-python.vscode-pylance"
+	],
+	"postCreateCommand": "pip install -r requirements.txt",
+	"remoteUser": "vscode",
+	"mounts": [
+	  "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+	],
+	"forwardPorts": [5000],
+	"remoteEnv": {
+	  "FLASK_APP": "app.py",
+	  "FLASK_ENV": "development"
+	}
+  }
+  
