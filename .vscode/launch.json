@@ -7,7 +7,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "app.py",  // Substitua pelo nome do seu arquivo Flask, se diferente
+                "FLASK_APP": "backend/app.py",  // Substitua pelo nome do seu arquivo Flask, se diferente
                 "FLASK_ENV": "development"  // Ativa o modo de depuração do Flask
             },
             "args": [
