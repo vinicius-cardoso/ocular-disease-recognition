@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento de Doenças Oculares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            height: auto;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reconhecimento de Doenças Oculares</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Carregar</button>
+    </form>
+
+    {% if uploaded_image %}
+        <h2>Classificação da Imagem</h2>
+        <p><strong>Diagnóstico:</strong> {{ predicted_label }}</p>
+        <p><strong>Probabilidade:</strong> {{ probability | round(2) }}%</p>
+        <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Imagem carregada">
+    {% endif %}
+</body>
+</html>
