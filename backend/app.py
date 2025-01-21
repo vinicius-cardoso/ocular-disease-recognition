@@ -6,7 +6,7 @@ from PIL import Image
 import tensorflow as tf
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.models import load_model
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, jsonify
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -110,12 +110,14 @@ def classify_single_image(model, image_path, class_labels):
 def index():
     if request.method == "POST":
         if "image" not in request.files:
-            return redirect(request.url)
+            # return redirect(request.url)
+            return jsonify({"error": "Nenhuma imagem foi enviada."}), 400
 
         file = request.files["image"]
 
         if file.filename == "":
-            return redirect(request.url)
+            # return redirect(request.url)
+            return jsonify({"error": "O nome do arquivo está vazio."}), 400
 
         if file:
             filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
@@ -124,12 +126,20 @@ def index():
             # Classificar a imagem
             predicted_label, probability = classify_single_image(model, filepath, class_names)
 
-            return render_template(
-                "index.html",
-                uploaded_image=file.filename,
-                predicted_label=predicted_label,
-                probability=probability,
-            )
+            # return render_template(
+            #     "index.html",
+            #     uploaded_image=file.filename,
+            #     predicted_label=predicted_label,
+            #     probability=probability,
+            # )
+            response = {
+                "image_name": file.filename,
+                "image_url": filepath,
+                "label": predicted_label,
+                "probability": probability
+            }
+
+            return jsonify(response)
 
     return render_template("index.html")
 
