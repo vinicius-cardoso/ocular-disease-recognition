@@ -1,0 +1,45 @@
+body {
+    font-family: "Fira Sans", Arial, sans-serif;
+    margin: 0px;
+    color: #141414;
+    background-color: #c9e6f0;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #68a9c7;
+    height: 70px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #fbf8ef;
+    font-size: 32px;
+    border: #68a9c7;
+    transition: background-color 0.2s;
+}
+
+.botao:hover {
+    background-color: #68a9c7;
+}

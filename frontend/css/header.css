@@ -1,0 +1,33 @@
+.header {
+    max-width: 1160px;
+    height: 80px;
+    padding: 0 60px 0 20px;
+    margin: 60px auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbf8ef;
+    color: #292929;
+    font-size: 32px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.header-logo img {
+    width: 35px;
+    color: #f96e2a;
+}
+
+.header a {
+    text-decoration: none;
+    color: inherit;
+}

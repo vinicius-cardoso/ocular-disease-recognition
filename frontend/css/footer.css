@@ -1,0 +1,74 @@
+.footer {
+    background-color: #78b3ce;
+    height: 482px;
+}
+
+.footer-container {
+    max-width: 1160px;
+    margin: auto;
+    padding-top: 63px;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.footer-direitos {
+    font-size: 14px;
+    color: #fbf8ef;
+}
+
+.card {
+    width: 360px;
+    height: 292px;
+    background-color: #fbf8ef;
+    border-radius: 20px;
+    stroke: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.card h3 {
+    font-size: 45px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-top: 38px;
+    color: #3d3d3d;
+}
+
+.card span {
+    font-size: 24px;
+    color: #3d3d3d;
+}
+
+.card p {
+    width: 240px;
+    font-size: 24px;
+    color: #3d3d3d;
+}
+
+.card::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 48px;
+    background: linear-gradient(#fc8c56, #f96e2a);
+    position: absolute;
+    top: 41px;
+    left: -8px;
+}
+
+.criadores-container {
+    width: 240px;
+}
+
+.criador {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}

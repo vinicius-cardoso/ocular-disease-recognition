@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeScan AI</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <a href="./">
+                <img src="./img/logo.svg" alt="EyeScan AI">
+            </a>
+            <a href="./">EyeScan AI</a>
+        </div>
+            <a href="#sobre">sobre</a>
+    </header>
+    <main class="main resultado-page" id="main">
+        <div class="evolucao">
+            <div class="step" id="inicial">Inicial</div>
+            <svg class="arrow" viewBox="0 0 50 10">
+                <line x1="0" y1="5" x2="50" y2="5" stroke="#3d3d3d" stroke-width="2"/>
+                <polygon points="45,0 50,5 45,10" fill="#3d3d3d"/>
+            </svg>
+            <div class="step active" id="imagem">Imagem</div>
+            <svg class="arrow" viewBox="0 0 50 10">
+                <line x1="0" y1="5" x2="50" y2="5" stroke="#3d3d3d" stroke-width="2"/>
+                <polygon points="45,0 50,5 45,10" fill="#3d3d3d"/>
+            </svg>
+            <div class="step" id="resultado">Resultado</div>
+        </div>
+    
+        <label for="upload-img" class="carrega-img" id="carrega-img">
+            <p>Clique para importar imagem</p>
+            <img id="preview-img" src="" alt="Pré-visualização da imagem" style="display: none;">
+            <input type="file" id="upload-img" accept="image/*">
+        </label>
+    
+        <a class="botao" href="#" id="processar">Processar</a>
+    </main>
+       
+    <footer class="footer" id="sobre">
+        <div class="footer-container">
+            <ul class="footer-list">
+                <li class="card">
+                    <h3>CRIADORES</h3>
+                    <div class="criadores-container">
+                        <div class="criador">
+                            <span>Henrique Perin</span>
+                            <a href="https://www.linkedin.com/in/henriqueperim/" target="_blank">
+                                <img src="./img/icon-linkedin.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="criador">
+                            <span>Marcelo Andrade</span>
+                            <a href="https://www.linkedin.com/in/marcelo-andrade-10334b160/" target="_blank">
+                                <img src="./img/icon-linkedin.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="criador">
+                            <span>Vinicius Antunes</span>
+                            <a href="https://www.linkedin.com/in/vinicius-c/" target="_blank">
+                                <img src="./img/icon-linkedin.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="card">
+                    <h3>SOBRE</h3>
+                    <p>Projeto realizado durante uma disciplina da UFMG.</p>
+                </li>
+                <li class="card">
+                    <h3>TECNOLOGIAS</h3>
+                    <p>AWS, nginx, Cloudflare, HTML, CSS, JavaScript, Python, Flask</p>
+                </li>
+            </ul>
+            <span class="footer-direitos">Alguns direitos reservados.</span>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
