@@ -7,19 +7,21 @@ import tensorflow as tf
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.models import load_model
 from flask import Flask, render_template, request, redirect, jsonify
+from flask_cors import CORS
 
 import warnings
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
+CORS(app)
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Limitar uploads a 16MB
 
 # Criar diretório para uploads, se não existir
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-DATASET_PATH = './dataset/100/'
-IMAGE_PATH = './dataset/100/diabetic_retinopathy_100/10003_left.jpeg'
+DATASET_PATH = './dataset/'
+IMAGE_PATH = './dataset/diabetic_retinopathy_100/10003_left.jpeg'
 MODEL_PATH = './best_model_custom.keras'
 
 # Getting the names of classes
@@ -63,10 +65,10 @@ class_names = label_encoder.classes_
 class_numbers = label_encoder.transform(label_encoder.classes_)
 
 diseases_names_dict = {
-    'cataract_100': 'Catarata', 
-    'diabetic_retinopathy_100': 'Retinopatia Diabética',
-    'glaucoma_100': 'Glaucoma',
-    'normal_100': 'Normal'
+    'cataract': 'Catarata', 
+    'diabetic_retinopathy': 'Retinopatia Diabética',
+    'glaucoma': 'Glaucoma',
+    'normal': 'Normal'
 }
 
 class_names = [diseases_names_dict[nome] for nome in class_names]
@@ -136,12 +138,10 @@ def index():
                 "image_name": file.filename,
                 "image_url": filepath,
                 "label": predicted_label,
-                "probability": probability
+                "probability": round(probability, 2)
             }
 
             return jsonify(response)
-
-    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
